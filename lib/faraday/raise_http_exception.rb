@@ -6,7 +6,6 @@ module FaradayMiddleware
   class RaiseHttpException < Faraday::Middleware
     def call(env)
       @app.call(env).on_complete do |response|
-        p response
         case response[:status].to_i
         when 400
           raise Douban::BadRequest, error_message_400(response)
