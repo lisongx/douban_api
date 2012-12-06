@@ -11,6 +11,7 @@ module Douban
       :client_id,
       :client_secret,
       :access_token,
+      :refresh_token,
       :endpoint,
       :format,
       :user_agent,
@@ -38,9 +39,9 @@ module Douban
     # By default, don't set an application redirect uri
     DEFAULT_REDIRECT_URI = nil
 
-    # By default, don't set a user access token
+    # By default, don't set a user access token and refresh token
     DEFAULT_ACCESS_TOKEN = nil
-
+    DEFAULT_REFRESH_TOKEN = nil
     # The endpoint that will be used to connect if none is set
     #
     # @note There is no reason to use any other endpoint at this time
@@ -83,6 +84,7 @@ module Douban
       self.client_id      = DEFAULT_CLIENT_ID
       self.client_secret  = DEFAULT_CLIENT_SECRET
       self.access_token   = DEFAULT_ACCESS_TOKEN
+      self.refresh_token  = DEFAULT_REFRESH_TOKEN
       self.endpoint       = DEFAULT_ENDPOINT
       self.format         = DEFAULT_FORMAT
       self.user_agent     = DEFAULT_USER_AGENT

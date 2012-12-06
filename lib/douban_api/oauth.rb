@@ -15,6 +15,14 @@ module Douban
       post("https://www.douban.com/service/auth2/token", params.merge(:code => code), raw=false)
     end
 
+    def refresh(options={})
+      options[:grant_type] ||= "refresh_token"
+      params = access_token_params.merge(options)
+      post("https://www.douban.com/service/auth2/token",
+            params.merge(:refresh_token => refresh_token),
+            raw=false)
+    end
+    
     private
 
     def access_token_params
