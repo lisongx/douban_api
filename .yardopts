@@ -1,1 +1,4 @@
+--no-private
 --charset utf-8
+--tag authenticated:"需要认证"
+--tag scope:"需要的scope"
