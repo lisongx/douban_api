@@ -6,6 +6,10 @@ Simple Ruby wrapper for [Douban API V2](http://developers.douban.com/wiki/?title
 
 
 ## Sample Sinatra App
+
+完整的应用请到 https://github.com/seansay/douban_api_sinatra_example 
+Demo: http://doubanapi.notimportant.org/
+
     require 'rubygems'
     require 'sinatra'
     require 'haml'
