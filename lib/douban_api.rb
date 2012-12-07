@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require File.expand_path('../douban_api/error', __FILE__)
 require File.expand_path('../douban_api/configuration', __FILE__)
 require File.expand_path('../douban_api/api', __FILE__)

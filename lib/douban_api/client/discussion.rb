@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Douban
   class Client
     # 论坛API V2 http://developers.douban.com/wiki/?title=discussion_v2

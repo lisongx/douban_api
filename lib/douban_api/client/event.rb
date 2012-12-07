@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Douban
   class Client
     # 豆瓣同城 V2 http://developers.douban.com/wiki/?title=event_v2
@@ -130,7 +131,7 @@ module Douban
       # @see http://developers.douban.com/wiki/?title=event_v2#loc_get
       # @scope event_basic_r
       # @authenticated false
-      # @param loc_id [String] 城市id
+      # @param id [String] 城市id
       # @return [Hashie::Mash] 活动列表
       # @example 查看北京的信息
       #   Douban.loc('108288')

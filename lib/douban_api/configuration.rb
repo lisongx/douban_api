@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'faraday'
 require File.expand_path('../../faraday/parts/filepart', __FILE__)
 require File.expand_path('../version', __FILE__)
@@ -58,7 +59,6 @@ module Douban
     # The user agent that will be sent to the API endpoint if none is set
     DEFAULT_USER_AGENT = "Douban Ruby Gem #{Douban::VERSION}".freeze
 
-    # @private
     attr_accessor *VALID_OPTIONS_KEYS
 
     # When this module is extended, set all configuration options to their default values

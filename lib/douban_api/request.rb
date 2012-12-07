@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Douban
   # Defines HTTP request methods
   module Request

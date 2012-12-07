@@ -1,8 +1,8 @@
+# -*- encoding : utf-8 -*-
 module Douban
   # Wrapper for the Douban REST API
   #
-  # @note All methods have been separated into modules and follow the same grouping used in {TODO:doc_URL the Douban API Documentation}.
-  # @see TODO:doc_url
+  # @note All methods have been separated into modules and follow the same grouping used in the Douban API Documentation.
   class Client < API
     Dir[File.expand_path('../client/*.rb', __FILE__)].each{|f| require f}
 

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Douban
   class Client
     # 图书Api V2 
@@ -7,7 +8,7 @@ module Douban
       # 获取图书信息
       #
       # @see http://developers.douban.com/wiki/?title=book_v2#get_book
-      # @scope book_basic_r
+      # @douban.scope book_basic_r
       # @authenticated false
       # @param id [String] 图书的id
       # @return [Hashie::Mash] 图书信息
@@ -19,7 +20,7 @@ module Douban
 
       # 根据isbn获取图书信息
       #
-      # @scope book_basic_r
+      # @douban.scope book_basic_r
       # @see http://developers.douban.com/wiki/?title=book_v2#get_isbn_book
       # @authenticated false
       # @param id [String] 图书的id
@@ -32,7 +33,7 @@ module Douban
 
       # 通过关键字搜索图书
       #
-      # @scope book_basic_r
+      # @douban.scope book_basic_r
       # @see http://developers.douban.com/wiki/?title=book_v2#get_book_search
       # @authenticated false
       # @param q [String] 查询关键字
@@ -46,7 +47,7 @@ module Douban
       
       # 通过tag搜索图书
       #
-      # @scope book_basic_r
+      # @douban.scope book_basic_r
       # @see http://developers.douban.com/wiki/?title=book_v2#get_book_search
       # @authenticated false
       # @param tag [String] 查询的tag
@@ -60,7 +61,7 @@ module Douban
 
       # 某个图书中标记最多的标签, 最多返回前50个tag
       #
-      # @scope book_basic_r
+      # @douban.scope book_basic_r
       # @see http://developers.douban.com/wiki/?title=book_v2#get_book_tags
       # @authenticated false
       # @param id [String] 图书的id
@@ -74,7 +75,7 @@ module Douban
 
       # 获取用户对图书的所有标签
       # 
-      # @scope book_basic_r
+      # @douban.scope book_basic_r
       # @see http://developers.douban.com/wiki/?title=book_v2#get_user_book_tags
       # @authenticated false
       # @param name [String] 用户uid或者数字id
@@ -95,7 +96,7 @@ module Douban
 
       # 发表新评论
       #
-      # @scope douban_basic_common
+      # @douban.scope douban_basic_common
       # @see http://developers.douban.com/wiki/?title=book_v2#post_book_review
       # @authenticated true
       # @param id [String] 图书的id
@@ -111,13 +112,13 @@ module Douban
       #      嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻...(省略一些嘻)",
       #     :rating => 5
       #   })
-      def create_book_review(book_id, options={})
-        post "v2/book/reviews", options.merge(:book => book_id)
+      def create_book_review(id, options={})
+        post "v2/book/reviews", options.merge(:book => id)
       end
       
       # 修改评论
       #
-      # @scope douban_basic_common
+      # @douban.scope douban_basic_common
       # @see http://developers.douban.com/wiki/?title=book_v2#put_book_review
       # @authenticated true
       # @param id [String] 评论的id
@@ -139,7 +140,7 @@ module Douban
       
       # 删除评论
       #
-      # @scope douban_basic_common
+      # @douban.scope douban_basic_common
       # @see http://developers.douban.com/wiki/?title=book_v2#delete_book_review
       # @authenticated true
       # @param id [String] 图书的id
@@ -157,7 +158,7 @@ module Douban
 
       # 获取某篇笔记的信息
       # 
-      # @scope book_basic_r
+      # @douban.scope book_basic_r
       # @see http://developers.douban.com/wiki/?title=book_v2#delete_book_review
       # @authenticated true
       # @param id [String] 笔记的id
@@ -173,7 +174,7 @@ module Douban
       
       # 获取某本图书的所有笔记
       # 
-      # @scope book_basic_r
+      # @douban.scope book_basic_r
       # @see http://developers.douban.com/wiki/?title=book_v2#get_book_annotations
       # @authenticated false
       # @param id [String] 图书的id
@@ -193,7 +194,7 @@ module Douban
       
       # 用户给某本图书写笔记
       # 
-      # @scope book_basic_w
+      # @douban.scope book_basic_w
       # @see http://developers.douban.com/wiki/?title=book_v2#post_book_annotation
       # @authenticated true
       # @param id [String] 图书的id
@@ -218,7 +219,7 @@ module Douban
       
       # 用户修改某篇笔记
       # 
-      # @scope book_basic_w
+      # @douban.scope book_basic_w
       # @see http://developers.douban.com/wiki/?title=book_v2#put_annotation
       # @authenticated true
       # @param id [String] 图书的id
@@ -243,7 +244,7 @@ module Douban
 
       # 用户删除某篇笔记
       # 
-      # @scope book_basic_w
+      # @douban.scope book_basic_w
       # @see http://developers.douban.com/wiki/?title=book_v2#delete_annotation
       # @authenticated true
       # @param id [String] 笔记的id
@@ -261,7 +262,7 @@ module Douban
       
       # 获取某个用户的所有笔记
       # 
-      # @scope book_basic_r
+      # @douban.scope book_basic_r
       # @see http://developers.douban.com/wiki/?title=book_v2#get_user_annotations
       # @authenticated false
       # @param name [String] 用户uid或者数字id
@@ -282,7 +283,7 @@ module Douban
 
       # 获取用户对某本图书的收藏信息
       # 
-      # @scope book_basic_r
+      # @douban.scope book_basic_r
       # @see http://developers.douban.com/wiki/?title=book_v2#get_book_collection
       # @authenticated true
       # @param id [String] 图书的id
@@ -295,7 +296,7 @@ module Douban
 
       # 获取某个用户的所有图书收藏信息
       # 
-      # @scope book_basic_r
+      # @douban.scope book_basic_r
       # @see http://developers.douban.com/wiki/?title=book_v2#get_user_collections
       # @authenticated false
       # @param name [String] 用户uid或者数字id
@@ -328,7 +329,7 @@ module Douban
 
       # 获取某个用户的所有图书收藏信息
       # 
-      # @scope book_basic_w
+      # @douban.scope book_basic_w
       # @see http://developers.douban.com/wiki/?title=book_v2#post_book_collection
       # @authenticated true
       # @param id [String] 图书的id
@@ -352,7 +353,7 @@ module Douban
 
       # 获取某个用户的所有图书收藏信息
       # 
-      # @scope book_basic_w
+      # @douban.scope book_basic_w
       # @see http://developers.douban.com/wiki/?title=book_v2#put_book_collection
       # @authenticated true
       # @param id [String] 图书的id
@@ -377,7 +378,7 @@ module Douban
 
       # 用户删除某篇笔记
       # 
-      # @scope book_basic_w
+      # @douban.scope book_basic_w
       # @see http://developers.douban.com/wiki/?title=book_v2#delete_book_collection
       # @authenticated true
       # @param id [String] 图书的id

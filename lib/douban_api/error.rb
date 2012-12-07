@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Douban
   # Custom error class for rescuing from all Douban errors
   class Error < StandardError; end

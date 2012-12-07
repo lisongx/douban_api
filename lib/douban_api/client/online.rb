@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Douban
   class Client
     # Douban api online onlines 

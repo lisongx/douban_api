@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Douban
   class Client
     # 音乐Api V2 http://developers.douban.com/wiki/?title=music_v2

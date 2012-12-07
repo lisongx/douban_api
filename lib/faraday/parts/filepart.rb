@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # monkey patch from @liluo https://gist.github.com/4176272
 class Faraday::Parts::FilePart
   def initialize(boundary, name, io) 

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Douban
   class Client
     # 豆瓣用户API V2 http://developers.douban.com/wiki/?title=user_v2
@@ -8,7 +9,7 @@ module Douban
       # @scope douban_basic_common
       # @see http://developers.douban.com/wiki/?title=user_v2#get_user
       # @authenticated false
-      # @param id [String] 用户uid或者数字id
+      # @param user_id [String] 用户uid或者数字id
       # @return [Hashie::Mash] 用户信息
       # @example 查看ahbei的信息
       #   Douban.user('ahbei')

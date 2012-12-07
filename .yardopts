@@ -1,5 +1,5 @@
 --no-private
+--protected
+--tag authenticated:"是否需要认证"
+--tag douban.scope:"需要的scope"
 --charset utf-8
---markup markdown
---tag authenticated:"需要认证"
---tag scope:"需要的scope"

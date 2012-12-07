@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Douban
   class Client
     # 豆瓣广播 Api V2 http://developers.douban.com/wiki/?title=shuo_v2
