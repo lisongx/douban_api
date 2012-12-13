@@ -12,15 +12,23 @@ module Douban
     def get_access_token(code, options={})
       options[:grant_type] ||= "authorization_code"
       params = access_token_params.merge(options)
-      post("https://www.douban.com/service/auth2/token", params.merge(:code => code), raw=false)
+      response = post("https://www.douban.com/service/auth2/token",
+                        params.merge(:code => code),
+                        raw=false)
     end
-
+    
+    # Refresh you access token, see OAuth2 spec for more infomation
+    # @see http://developers.douban.com/wiki/?title=oauth2
+    # @note 返回新的access_token和refresh_token的同时, 它修改client的access_token和refresh_token
     def refresh(options={})
       options[:grant_type] ||= "refresh_token"
       params = access_token_params.merge(options)
-      post("https://www.douban.com/service/auth2/token",
-            params.merge(:refresh_token => refresh_token),
-            raw=false)
+      response = post("https://www.douban.com/service/auth2/token",
+                        params.merge(:refresh_token => refresh_token),
+                        raw=false)
+      @access_token, @refresh_token = response[:access_token], response[:refresh_token]
+
+      response
     end
     
     private
