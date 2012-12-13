@@ -1,5 +1,7 @@
 # douban_api
+
 Simple Ruby wrapper for [Douban API V2](http://developers.douban.com/wiki/?title=api_v2)
+
 这个项目仍在开发中，缺少文档和测试，欢迎贡献。
 ## Installation
     gem install douban_api
