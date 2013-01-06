@@ -26,8 +26,8 @@ module Douban
       # @return [Array<Hashie::Mash>] 用户列表
       # @example 获取参与 id为17790089 活动的用户
       #   Douban.event_participants('17790089')
-      def event_participants(id)
-        response = get "v2/event/#{id}/participants"
+      def event_participants(id, options={})
+        response = get("v2/event/#{id}/participants", options)
         response["users"]
       end
 
@@ -40,8 +40,8 @@ module Douban
       # @return [Array<Hashie::Mash>] 用户列表
       # @example 获取对 id为17790089 活动感兴趣的用户
       #   Douban.event_wishers('17790089')
-      def event_wishers(id)
-        response = get "v2/event/#{id}/wishers"
+      def event_wishers(id, options={})
+        response = get("v2/event/#{id}/wishers", options)
         response["users"]
       end
 
