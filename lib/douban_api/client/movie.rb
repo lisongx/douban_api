@@ -10,12 +10,39 @@ module Douban
       # @authenticated false
       # @param id [String] 电影的id
       # @return [Hashie::Mash] 电影信息
-      # @example 获取 id为1296987 的电影信息
-      #   Douban.movie('1296987')
+      # @example 获取 id为1054432 的电影信息
+      #   Douban.movie('1054432')
       def movie(id)
         response = get "v2/movie/#{id}"
       end
 
+      # 获取影人信息
+      #
+      # @see http://developers.douban.com/wiki/64/#get-celebrity
+      # @scope movie_basic_r
+      # @authenticated false
+      # @param id [String] 影人的id
+      # @return [Hashie::Mash] 影人信息
+      # @example 获取 id为1054432 的影人信息
+      #   Douban.celebrity('1054432')
+      def celebrity(id)
+        response = get "v2/movie/celebrity/#{id}"
+      end
+
+      # 获取影人作品
+      #
+      # @see http://developers.douban.com/wiki/64/#get-celebrity
+      # @scope movie_basic_r
+      # @authenticated false
+      # @param id [String] 影人的id
+      # @return [Array<Hashie::Mash>] 影人作品列表
+      # @example 获取 id为1296987 的影人的作品列表
+      #   Douban.celebrity_works('1054432')
+      def celebrity_works(id)
+        response = get "v2/movie/celebrity/#{id}/works"
+        response["works"]
+      end
+      
       # 根据imdb号获取电影信息
       #
       # @scope movie_basic_r
