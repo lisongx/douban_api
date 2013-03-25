@@ -318,7 +318,7 @@ module Douban
       #   client.books()
       # TODO 可以允许options[:from]和options[:to]传入ruby日期对象
       def books(name=nil, options={})
-        if user_id.nil?
+        if name.nil?
           response = get("v2/book/user/#{get_user_id}/collections", options)
         else
           response = get("v2/book/user/#{name}/collections", options)
