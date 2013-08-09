@@ -35,7 +35,20 @@ module Douban
           request.body = options unless options.empty?
         end
       end
+
+      @rate_limit_info = extract_rate_limit_info(response.headers)
+
       raw ? response : response.body
+    end
+
+    def extract_rate_limit_info(headers)
+      headers.reject do |k, v|
+        !['x-ratelimit-limit',
+          'x-ratelimit-limit2',
+          'x-ratelimit-remaining',
+          'x-ratelimit-remaining2'
+        ].include?(k)
+      end
     end
   end
 end
