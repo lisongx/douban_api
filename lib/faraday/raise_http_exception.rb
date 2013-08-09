@@ -9,9 +9,9 @@ module FaradayMiddleware
       @app.call(env).on_complete do |response|
         case response[:status].to_i
         when 400
-          raise Douban::BadRequest, error_message_400(response)
+          raise Douban::BadRequest.new(response[:body]), error_message_400(response)
         when 404
-          raise Douban::NotFound, error_message_400(response)
+          raise Douban::NotFound.new(response[:body]), error_message_400(response)
         when 500
           raise Douban::InternalServerError, error_message_500(response, "Something is technically wrong.")
         when 503
@@ -28,21 +28,7 @@ module FaradayMiddleware
     private
 
     def error_message_400(response)
-      "#{response[:method].to_s.upcase} #{response[:url].to_s}: #{response[:status]}#{error_body(response[:body])}"
-    end
-
-    def error_body(body)
-      # body gets passed as a string, not sure if it is passed as something else from other spots?
-      if not body.nil? and not body.empty? and body.kind_of?(String)
-        # removed multi_json thanks to wesnolte's commit
-        body = ::JSON.parse(body)
-      end
-
-      if body.nil?
-        nil
-      elsif body['code'] and body['msg']
-        ": ERROR #{body['code']}, #{body['msg']}"
-      end
+      "#{response[:method].to_s.upcase} #{response[:url].to_s}: #{response[:status]}"
     end
 
     def error_message_500(response, body=nil)
