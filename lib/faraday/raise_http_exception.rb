@@ -40,8 +40,8 @@ module FaradayMiddleware
 
       if body.nil?
         nil
-      elsif body['meta'] and body['meta']['error_message'] and not body['meta']['error_message'].empty?
-        ": #{body['meta']['error_message']}"
+      elsif body['code'] and body['msg']
+        ": ERROR #{body['code']}, #{body['msg']}"
       end
     end
 
