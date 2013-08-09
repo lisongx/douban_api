@@ -16,10 +16,12 @@ module Douban
       }
 
       Faraday::Connection.new(options) do |connection|
+        # requests
         connection.use FaradayMiddleware::OAuth2, client_id, access_token
-        connection.use FaradayMiddleware::Mashify unless raw
         connection.use Faraday::Request::Multipart
         connection.use Faraday::Request::UrlEncoded
+
+        # responses
         connection.use FaradayMiddleware::Mashify unless raw
         unless raw
           case format.to_s.downcase
@@ -27,6 +29,9 @@ module Douban
           end
         end
         connection.use FaradayMiddleware::RaiseHttpException
+        # connection.use Faraday::Response::Logger
+
+        # adapter
         connection.adapter(adapter)
       end
     end
