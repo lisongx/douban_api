@@ -17,6 +17,10 @@ module Douban
       end
     end
 
+    def get_rate_limit_info
+      @rate_limit_info || {}
+    end
+
     include Connection
     include Request
     include OAuth
