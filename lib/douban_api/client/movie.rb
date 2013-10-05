@@ -81,7 +81,7 @@ module Douban
       #   Douban.search_movies("伍迪·艾伦")
       def search_movies(q, options={})
         response = get "v2/movie/search", options.merge(:q => q)
-        response["movies"]
+        response["subjects"]
       end
 
       # 搜索电影(通过标签)
