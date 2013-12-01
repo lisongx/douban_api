@@ -9,13 +9,13 @@ module FaradayMiddleware
       @app.call(env).on_complete do |response|
         case response[:status].to_i
         when 400
-          raise Douban::BadRequest.new(response[:body]), error_message_400(response)
+          raise Douban::BadRequest.new(response)
         when 404
-          raise Douban::NotFound.new(response[:body]), error_message_400(response)
+          raise Douban::NotFound.new(response)
         when 500
-          raise Douban::InternalServerError, error_message_500(response, "Something is technically wrong.")
+          raise Douban::InternalServerError.new(response, "Something is technically wrong.")
         when 503
-          raise Douban::ServiceUnavailable, error_message_500(response, "Douban is rate limiting your requests.")
+          raise Douban::ServiceUnavailable.new(response, "Douban is rate limiting your requests.")
         end
       end
     end
@@ -27,12 +27,6 @@ module FaradayMiddleware
 
     private
 
-    def error_message_400(response)
-      "#{response[:method].to_s.upcase} #{response[:url].to_s}: #{response[:status]}"
-    end
 
-    def error_message_500(response, body=nil)
-      "#{response[:method].to_s.upcase} #{response[:url].to_s}: #{[response[:status].to_s + ':', body].compact.join(' ')}"
-    end
   end
 end
