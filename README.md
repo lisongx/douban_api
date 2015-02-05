@@ -146,3 +146,6 @@ Demo: http://doubanapi.notimportant.org/
 
 ## Copyright
 This project a fork of [instagram-ruby-gem](https://github.com/Instagram/instagram-ruby-gem),  see [LICENSE](https://github.com/seansay/douban_api/blob/master/LICENSE.md) for details.
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/seansay/douban_api/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
